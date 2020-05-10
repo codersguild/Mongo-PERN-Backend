@@ -54,7 +54,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(
   session({
-    secret: process.env.ACCESS_TOKEN_SECRET,
+    secret: 'secret-here',
     resave: false,
     saveUninitialized: true,
     cookie: {
