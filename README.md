@@ -27,6 +27,8 @@ $ docker stop $(docker ps -aq)
 $ docker rm -f  $(docker ps -aq)
 ```
 
+MongoDB Connection STRING : mongodb://YourUsername:YourPasswordHere@127.0.0.1:27017/your-database-name
+
 ### Node.js Patterns (TBD)
 
 [Some Node.js Patterns](https://softwareontheroad.com/ideal-nodejs-project-structure/?utm_source=github&utm_medium=readme)
