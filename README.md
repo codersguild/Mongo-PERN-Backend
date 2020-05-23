@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/codersguild/Mongo-PERN-Backend/workflows/Node.js%20CI/badge.svg?branch=master)
+
 # App Backend
 
 Node.js based backend Template
