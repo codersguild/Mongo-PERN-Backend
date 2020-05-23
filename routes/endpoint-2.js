@@ -6,10 +6,10 @@ var router = express.Router();
  * @swagger
  * /endpoint2 :
  *  get:
- *    description: Team Router
+ *    description: EndPoint 2 
  *    responses:
  *      '200':
- *        description: Team Services Running Status
+ *        description: EndPoint-2 Service Running Status
  */
 router.get('/', (async (req, res, next) => {
     res.status(200).json({
