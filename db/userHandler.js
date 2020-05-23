@@ -1,4 +1,4 @@
-// Add user to DB if does not exists. 
+// Get all data from sampletable  
 import QUERIES from "./query";
 import db from "./queryHandler";
 
