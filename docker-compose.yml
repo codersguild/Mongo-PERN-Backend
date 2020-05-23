@@ -11,7 +11,7 @@ services:
         ports:
             - '5432-5435:5432-5435'
         volumes:
-            - ./postgres/postgres:/var/lib/postgresql/data
+            - ./postgres/postgres/:/var/lib/postgresql/data
             - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
     mongodb_container:
         container_name: mongodb_docker
@@ -24,7 +24,7 @@ services:
         ports:
             - '27017-27019:27017-27019'
         volumes:
-            - ./mongodb_data_container:/data/db
+            - ./mongodb_data_container/:/data/db
             - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
             
 volumes:
