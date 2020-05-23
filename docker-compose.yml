@@ -1,29 +1,28 @@
 version: '3.7'
 services:
-  mongodb_container:
-    image: mongo:latest
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
-    ports:
-      - 27017:27017
-    volumes:
-      - mongodb_data_container:/data/db
-
+    postgres:
+        container_name: postgres_docker
+        image: postgres
+        restart: always
+        environment:
+            "POSTGRES_PASSWORD": "postgres"
+            "POSTGRES_USER": "postgres"
+            "POSTGRES_DB": "sampledb"
+        ports:
+            - '5432:5432'
+        volumes:
+            - $PWD/postgres/postgres:/var/lib/postgresql/data
+            - $PWD/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    mongodb_container:
+        container_name: mongodb_docker
+        image: mongo:latest
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: rootpassword
+        ports:
+            - 27017:27017
+        volumes:
+            - mongodb_data_container:/data/db
+            
 volumes:
-  mongodb_data_container:
-
-services:
-  postgres:
-    container_name: postgres_docker
-    image: postgres
-    restart: always
-    environment:
-      "POSTGRES_PASSWORD": "postgres"
-      "POSTGRES_USER": "postgres"
-      "POSTGRES_DB": "sampledb"
-    ports:
-      - '5432:5432'
-    volumes:
-      - $PWD/postgres/postgres:/var/lib/postgresql/data
-      - $PWD/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    mongodb_data_container:
