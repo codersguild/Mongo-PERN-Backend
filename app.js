@@ -9,8 +9,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser')
 var indexRouter = require('./routes/index');
-var endpointOneRouter = require('./routes/endpoint-1');
-var endpointTwoRouter = require('./routes/endpoint-2');
 const swaggerJsDoc = require('swagger-jsdoc')
 const swaggerui = require('swagger-ui-express')
 var morgan = require("morgan")
@@ -71,8 +69,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use("/api-docs", swaggerui.serve, swaggerui.setup(swaggerDocs));
 app.use('/', indexRouter);
-app.use('/endpoint-1', endpointOneRouter);
-app.use('/endpoint-2', endpointTwoRouter);
 
 app.use(logger('dev'));
 app.use(express.json());
