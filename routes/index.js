@@ -1,4 +1,6 @@
 const { check, validationResult } = require('express-validator');
+var endpointOneRouter = require('./endpoint-1');
+var endpointTwoRouter = require('./endpoint-2');
 var jwt = require('jsonwebtoken');
 var express = require('express');
 var router = express.Router();
@@ -19,6 +21,7 @@ router.get('/', async (req, res, next) => {
   })
 }); 
 
+// Wrap in a router.use() for middleware use. 
 function generateNewAccessToken(data) {
   return jwt.sign({
     payload : data
@@ -27,5 +30,7 @@ function generateNewAccessToken(data) {
   })
 }
 
+router.use('/endpoint-1', endpointOneRouter);
+router.use('/endpoint-2', endpointTwoRouter);
 
 module.exports = router;
